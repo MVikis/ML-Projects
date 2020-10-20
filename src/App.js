@@ -92,7 +92,7 @@ return (
            <div className="text-box">
            <h1>Image Classification</h1>
            <h4>This application uses a tensorflow model for classifing your uploaded image.
-             The model will provide three objects who has the highest probability to be the object in the image.<br/><br/>
+             The model will provide three objects which have the highest probability to be the object in the image.<br/><br/>
               Give it a shot!
            </h4>
            </div>
