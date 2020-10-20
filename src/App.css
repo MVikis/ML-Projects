@@ -7,20 +7,23 @@ color: black;
   height: 40vmin;
   pointer-events: none;
 }
-
-.img-container{
-  height: 300px;
-  width: 250px;
-  
+.text-box{
+  padding: 20px;
 }
+
 img{
-  width: 100%;
-  height: 100%;
+  width: 200px;
+  height: 150px;
+  position: absolute;
+  top:100px;
 object-fit: cover;
 }
 button{
+  color: white;
+  font-size: large;
   background-color: #3fd496;
-  margin: 20px;
+  position: absolute;
+  bottom: 100px;
   border-radius: 25px;
   padding: 10px;
   padding-left: 20px;
@@ -32,7 +35,8 @@ button{
   display: none;
 }
 table{
-  margin: 10px;
+  position: absolute;
+  top:300px;
 }
 th{
   background-color: #3fd496;
@@ -44,6 +48,41 @@ ul{
   padding: 20px;
   list-style: none;
   background-color: #162447;
+}
+.fade-enter {
+ transform: translateY(-10px);
+  opacity: 0;
+}
+.fade-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 1000ms;
+}
+.fade-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+ transform: translateY(-10px);
+  transition: all 1000ms;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut{
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
