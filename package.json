@@ -1,6 +1,6 @@
 {
   "name": "tensor",
-  "website": "https://mvikis.github.io/ml-projects/",
+  "homepage": "https://mvikis.github.io/ml-projects",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
