@@ -104,7 +104,10 @@ return (
          classNames="fade"
          unmountOnExit
           >
-          <img alt="" src={imageUrl} ref={imageRef}/></CSSTransition>
+         <div className="img-container">
+            <img alt="" src={imageUrl} ref={imageRef}/>
+            </div>
+            </CSSTransition>
 
   <CSSTransition
    in={showResults}
