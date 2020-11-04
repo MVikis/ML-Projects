@@ -2,3 +2,4 @@
 [1013/111732.822:ERROR:exception_snapshot_win.cc(99)] thread ID 7196 not found in process
 [1013/111732.830:ERROR:process_reader_win.cc(123)] NtOpenThread: {Åtkomst nekad} En process har begärt åtkomst till ett objekt, men har inte de rättigheter som krävs. (0xc0000022)
 [1013/111732.830:ERROR:exception_snapshot_win.cc(99)] thread ID 10388 not found in process
+[1104/171828.883:ERROR:directory_reader_win.cc(43)] FindFirstFile: Det går inte att hitta sökvägen. (0x3)

@@ -16,7 +16,7 @@ const stateMachine = {
     loadingModel: {on: {next: 'awaitingUpload'}},
     awaitingUpload: {on: {next: 'ready'}},
     ready: {on: {next: 'classifying'}, showImage: true},
-    classifying: {on: {next: 'complete'},showImage: true},
+    classifying: {on: {next: 'complete'}, showImage: true},
     complete: {on: {next: 'awaitingUpload'}, showImage:true, showResults: true}
     
   }
@@ -29,6 +29,7 @@ const [model, setModel] = useState(null)
 const [imageUrl, setImageUrl] = useState(null)
 const [results, setResults] = useState(null)
 const [showMap, setShowMap] = useState(null)
+const [changeClass, setClass] = useState('img-container')
 const inputRef = useRef()
 const imageRef = useRef()
 
@@ -46,16 +47,19 @@ const handleUpload = e =>{
   if(files.length > 0){
     const url = URL.createObjectURL(files[0])
     setImageUrl(url)
+    setClass('img-container')
     next()
   }
 }
 
 const identify = async() => {
+  setClass('upper-img-container')
   next()
   const classificationResults = await model.classify(imageRef.current)
   setResults(classificationResults)
  
   next()
+  
 }
 const reset = () => {
   setShowMap(false)
@@ -83,7 +87,7 @@ const {showImage = false, showResults = false} = stateMachine.states[state]
 return (
     <div className="App">
       <header className="App-header">
-        
+        <div className="background"></div>
       <CSSTransition
          in={!showImage}
          timeout={1000}
@@ -102,9 +106,8 @@ return (
          in={showImage}
          timeout={1000}
          classNames="fade"
-         unmountOnExit
-          >
-         <div className="img-container">
+         unmountOnExit>
+         <div className={changeClass}>
             <img alt="" src={imageUrl} ref={imageRef}/>
             </div>
             </CSSTransition>
