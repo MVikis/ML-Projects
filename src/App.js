@@ -3,6 +3,7 @@ import * as tf from '@tensorflow/tfjs'
 import * as mobilenet from '@tensorflow-models/mobilenet'
 import './App.css';
 import CSSTransition from "react-transition-group/CSSTransition"
+import { usePalette } from 'react-palette';
 
 
 
@@ -32,8 +33,10 @@ const [showMap, setShowMap] = useState(null)
 const [changeClass, setClass] = useState('img-container')
 const inputRef = useRef()
 const imageRef = useRef()
-
+const {data, loading, error}= usePalette(imageUrl)
 const next = ()=>dispatch('next')
+
+
 
 const loadModel = async () => {
   next()
@@ -83,11 +86,11 @@ const buttonProps = {
 const {showImage = false, showResults = false} = stateMachine.states[state]
 
 
-
+console.log(data)
 return (
     <div className="App">
       <header className="App-header">
-        <div className="background"></div>
+        <div style={{backgroundColor:`${data.darkVibrant}`}} className="background"></div>
       <CSSTransition
          in={!showImage}
          timeout={1000}
@@ -122,8 +125,8 @@ return (
   <table>
     <tbody>
   <tr>
-    <th>Object</th>
-    <th>Probability</th>
+    <th style={{backgroundColor:`${data.vibrant}`}}>Object</th>
+    <th style={{backgroundColor:`${data.vibrant}`}}>Probability</th>
   </tr>
   
   {showMap && results.map((result,index) =>
@@ -139,7 +142,7 @@ return (
 
         <input id="input" type="file" accept="image/*" capture="camera" ref={inputRef} onChange={handleUpload}/>
     
-  <button onClick={buttonProps[state].action}>{buttonProps[state].text}</button>
+  <button style={data?{backgroundColor:`${data.darkVibrant}`}:{backgroundColor:"#3fd496"}} onClick={buttonProps[state].action}>{buttonProps[state].text}</button>
       </header>
     </div>
   );
